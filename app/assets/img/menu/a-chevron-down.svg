@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6">
+    <path fill="#ADADAD" fill-rule="evenodd" d="M5 0L10 6 0 6z"
+          transform="rotate(-180 5 3)"/>
+</svg>

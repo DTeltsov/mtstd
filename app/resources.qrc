@@ -1,0 +1,81 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/">
+        <file alias="AColor.js">assets/AColor.js</file>
+        <file alias="App.qml">src/ui/App.qml</file>
+        <file alias="ExitDialog.qml">src/ui/ExitDialog.qml</file>
+        <file alias="Header.qml">src/ui/Header.qml</file>
+        <file alias="Workspace.qml">src/ui/Workspace.qml</file>
+
+        <file alias="components/login/LoginWizard.qml">src/ui/components/login/LoginWizard.qml</file>
+        <file alias="components/login/Login.qml">src/ui/components/login/Login.qml</file>
+        <file alias="components/popups/ErrorPopup.qml">src/ui/components/popups/ErrorPopup.qml</file>
+        <file alias="components/popups/FatalDialogPopup.qml">src/ui/components/popups/FatalDialogPopup.qml</file>
+        <file alias="components/popups/InfoPopup.qml">src/ui/components/popups/InfoPopup.qml</file>
+        <file alias="components/popups/PopupBusy.qml">src/ui/components/popups/PopupBusy.qml</file>
+        <file alias="components/popups/PopupQuestionTitle.qml">src/ui/components/popups/PopupQuestionTitle.qml</file>
+        <file alias="components/popups/LanguagesPopup.qml">src/ui/components/popups/LanguagesPopup.qml</file>
+
+        <file alias="theme/Text.qml">src/ui/theme/Text.qml</file>
+        <file alias="theme/Button.qml">src/ui/theme/Button.qml</file>
+        <file alias="theme/Popup.qml">src/ui/theme/Popup.qml</file>
+
+        <file alias="elements/AInputField.qml">src/ui/elements/AInputField.qml</file>
+        <file alias="elements/AShadows.qml">src/ui/elements/AShadows.qml</file>
+        <file alias="elements/AImage.qml">src/ui/elements/AImage.qml</file>
+        <file alias="elements/AComboBox.qml">src/ui/elements/AComboBox.qml</file>
+        <file alias="elements/AToolTip.qml">src/ui/elements/AToolTip.qml</file>
+        <file alias="elements/ColorButton.qml">src/ui/elements/ColorButton.qml</file>
+        <file alias="elements/ColorImage.qml">src/ui/elements/ColorImage.qml</file>
+        <file alias="elements/Spinner.qml">src/ui/elements/Spinner.qml</file>
+        <file alias="elements/VerticalDivider.qml">src/ui/elements/VerticalDivider.qml</file>
+        <file alias="elements/ExtraRectangle.qml">src/ui/elements/ExtraRectangle.qml</file>
+        <file alias="elements/IncrementBox.qml">src/ui/elements/IncrementBox.qml</file>
+    </qresource>
+
+    <qresource prefix="/icons">
+        <file alias="delete-button.png">assets/img/delete-button.png</file>
+        <file alias="shift.png">assets/img/shift.png</file>
+        <file alias="enter.png">assets/img/enter.png</file>
+    </qresource>
+    <qresource prefix="/gif">
+        <file alias="duck.gif">assets/gif/duck.gif</file>
+    </qresource>
+    <qresource prefix="/topBar">
+        <file alias="user.svg">assets/img/topBar/user.svg</file>
+        <file alias="console.svg">assets/img/topBar/console.svg</file>
+    </qresource>
+    <qresource prefix="/menu">
+        <file alias="a-chevron-down.svg">assets/img/menu/a-chevron-down.svg</file>
+        <file alias="logout.svg">assets/img/menu/logout.svg</file>
+        <file alias="report.svg">assets/img/menu/report.svg</file>
+        <file alias="closeButton.png">assets/img/title/close_button.png</file>
+        <file alias="waiting.svg">assets/img/waiting.svg</file>
+        <file alias="cross.svg">assets/img/cross.svg</file>
+        <file alias="hammer-green.svg">assets/img/menu/hammer-green.svg</file>
+        <file alias="hammer-gray.svg">assets/img/menu/hammer-gray.svg</file>
+        <file alias="nfc-blue.svg">assets/img/menu/nfc-blue.svg</file>
+        <file alias="nfc-gray.svg">assets/img/menu/nfc-gray.svg</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file alias="robotoRegular.ttf">assets/fonts/RobotoRegular.ttf</file>
+    </qresource>
+    <qresource prefix="/elements">
+        <file alias="check-mark.svg">assets/img/elements/check-mark.svg</file>
+        <file alias="check-mark-locked.svg">assets/img/elements/check-mark-locked.svg</file>
+        <file alias="copy.svg">assets/img/elements/copy.svg</file>
+        <file alias="copy-light.svg">assets/img/elements/copy-light.svg</file>
+        <file alias="key.svg">assets/img/elements/key.svg</file>
+        <file alias="dislike.svg">assets/img/elements/dislike.svg</file>
+        <file alias="trash-can.svg">assets/img/elements/trash-can.svg</file>
+        <file alias="minusButton.svg">assets/img/minusButton.svg</file>
+    </qresource>
+    <qresource prefix="/flags">
+        <file alias="en.svg">assets/img/flags/en.svg</file>
+        <file alias="uk.svg">assets/img/flags/uk.svg</file>
+    </qresource>
+    <qresource prefix="/translates">
+        <file alias="en.qm">src/localization/translates/en.qm</file>
+        <file alias="uk.qm">src/localization/translates/uk.qm</file>
+    </qresource>
+</RCC>

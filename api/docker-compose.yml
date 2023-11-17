@@ -1,0 +1,62 @@
+version: '3'
+
+services:
+  web:
+    container_name: django_app
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    volumes:
+      - ./:/usr/prod_api/
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - localstack
+    environment:
+      DB_NAME: "production"
+      DB_USER_NAME: "root"
+      DB_USER_PASSWORD: "123"
+      DB_HOST: "db"
+      DB_PORT: "3306"
+      ENDPOINT_AWS_S3: 'http://songs.s3.localhost.localstack.cloud:4566/'
+    command: sh -c "python manage.py runserver 0.0.0.0:8000"
+
+  # MySQL database
+  db:
+    container_name: mysql_db
+    image: "mysql:latest"
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: "production"
+      MYSQL_ROOT_PASSWORD: "123"
+    expose:
+      - 3306
+    ports:
+      - 3366:3306
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 60s
+      retries: 5
+
+  # fake S3
+  localstack:
+    container_name: "${LOCALSTACK_DOCKER_NAME-localstack_main}"
+    image: localstack/localstack
+    ports:
+      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
+    environment:
+      - DEBUG=1
+      - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR-}
+      - LOCALSTACK_HOSTNAME=localhost
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - AWS_DEFAULT_REGION="eu-west-1"
+      - FIRMWARE_UPLOAD_STORAGE=awslocal
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - "${TMPDIR:-/tmp}/localstack:/var/lib/localstack"
+volumes:
+  static:
