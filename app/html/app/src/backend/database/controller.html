@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>app.src.backend.database.controller API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>app.src.backend.database.controller</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import asyncio
+import time
+import uuid
+
+from aiohttp import ContentTypeError, ClientSession, ClientTimeout
+from bs4 import BeautifulSoup
+
+from app.logger import logger
+from app.src.localization import translate
+
+
+class Database:
+    &#34;&#34;&#34;
+    The `Database` class represents an interface for interacting with a remote API.
+
+    Attributes:
+    - url (str): The base URL of the API.
+    - token (str): The authentication token.
+
+    Methods:
+    - get_default_headers(token, req_uuid): Returns default headers for API requests.
+    - _get_api_error_data(response, request_uuid): Extracts error data from the API response.
+    - request(method, endpoint, token=None, url=None, need_log_params=True, **kwargs): Sends an API request.
+    - login(data): Authenticates a user based on the provided data.
+    - get_album(title): Retrieves album information based on the title.
+    - get_author(name): Retrieves author information based on the name.
+    - get_songs_by_genre(genre): Retrieves songs based on the genre.
+    - activate_subscription(): Activates a subscription.
+
+    Note: The methods in this class are asynchronous and should be awaited in an asynchronous context.
+    &#34;&#34;&#34;
+    def __init__(self):
+        &#34;&#34;&#34;
+        Initializes a new `Database` instance.
+
+        Sets the default base URL of the API and initializes the token to `None`.
+        &#34;&#34;&#34;
+        self.url = &#39;http://localhost:8000/api_v1/&#39;
+        self.token = None
+
+    @staticmethod
+    def get_default_headers(token, req_uuid):
+        &#34;&#34;&#34;
+        Returns default headers for API requests.
+
+        Parameters:
+        - token (str): The authentication token.
+        - req_uuid (str): The unique identifier for the request.
+
+        Returns:
+        dict: Default headers for API requests.
+        &#34;&#34;&#34;
+        headers = {&#34;RequestUUID&#34;: req_uuid or &#34;&#34;}
+        if token:
+            headers.update({&#39;Authorization&#39;: f&#39;Token {token}&#39;})
+        return headers
+
+    @staticmethod
+    async def _get_api_error_data(response, request_uuid):
+        &#34;&#34;&#34;
+        Extracts error data from the API response.
+
+        Parameters:
+        - response: The API response object.
+        - request_uuid (str): The unique identifier for the request.
+
+        Returns:
+        Any: Error data extracted from the API response.
+        &#34;&#34;&#34;
+        try:
+            error = await response.json()
+        except ContentTypeError:
+            error = await response.text()
+            try:
+                soup = BeautifulSoup(error, &#39;html.parser&#39;)
+                summary_div = soup.find(id=&#39;summary&#39;)
+                h1_text = summary_div.find(&#39;h1&#39;).get_text(strip=True).replace(&#39;\n&#39;, &#39;&#39;)
+                exception_value_text = summary_div.find(class_=&#39;exception_value&#39;).get_text(strip=True)
+            except (TypeError, AttributeError):
+                pass
+            else:
+                error = f&#34;HTML {response.status}: {exception_value_text} {h1_text}&#34;
+
+        escaped_error = str(error).replace(&#39;&lt;&#39;, r&#39;\&lt;&#39;)
+        logger.error(f&#34;API body of {request_uuid}: {escaped_error}&#34;)
+        return error
+
+    async def request(self, method, endpoint, token=None, url=None, need_log_params=True, **kwargs):
+        &#34;&#34;&#34;
+        Sends an API request.
+
+        Parameters:
+        - method: The HTTP method for the request (e.g., `session.get`).
+        - endpoint (str): The API endpoint.
+        - token (str): The authentication token.
+        - url (str): The base URL of the API.
+        - need_log_params (bool): Indicates whether to log the request parameters.
+        - **kwargs: Additional keyword arguments for the API request.
+
+        Returns:
+        Tuple[bool, Any]: A tuple indicating the success status and the data received from the API.
+        &#34;&#34;&#34;
+        if not url:
+            url = self.url
+        request_uuid = uuid.uuid4()
+        logger.info(f&#34;Start API {method.__name__} {endpoint!r} request {request_uuid} &#34;
+                    f&#34;{kwargs if need_log_params else &#39;&#39;}&#34;)
+        start = time.time()
+        try:
+            async with method(
+                    url + endpoint,
+                    headers=self.get_default_headers(token or self.token, str(request_uuid)),
+                    **kwargs,
+            ) as resp:
+                logger.debug(f&#34;Received API response {request_uuid}: &#34;
+                             f&#34;status {resp.status}, request time {time.time() - start:.2f}s&#34;)
+                if not resp.ok:
+                    if resp.status != 504:
+                        error = await self._get_api_error_data(resp, request_uuid)
+                    else:
+                        raise Exception(translate(&#39;api&#39;, &#39;request_timeout_error&#39;))
+
+                    return False, error
+                data = await resp.json()
+        except asyncio.CancelledError as e:
+            logger.error(f&#34;API coroutine was cancelled {request_uuid}: {time.time() - start}, {e!r}&#34;)
+            raise
+        except (asyncio.TimeoutError, TimeoutError) as e:
+            logger.error(f&#34;API timeout {request_uuid}: {time.time() - start}, {e!r}&#34;)
+            raise
+        return True, data
+
+    async def login(self, data):
+        &#34;&#34;&#34;
+        Authenticates a user based on the provided data.
+
+        Parameters:
+        - data: Data for user authentication.
+
+        Returns:
+        dict: User authentication result.
+        &#34;&#34;&#34;
+        async with ClientSession(timeout=ClientTimeout(5)) as session:
+            if token := data.get(&#39;token&#39;):
+                ok, result = await self.request(
+                    session.get, &#39;auth_api/login_by_token/&#39;, need_log_params=False, token=token
+                )
+            else:
+                ok, result = await self.request(session.post, &#39;auth_api/login/&#39;, need_log_params=False, json=data)
+            if not ok:
+                return {}
+            self.token = result.get(&#39;token&#39;)
+            return result
+
+    async def get_album(self, title):
+        &#34;&#34;&#34;
+        Retrieves album information based on the title.
+
+        Parameters:
+        - title (str): The title of the album.
+
+        Returns:
+        dict: Album information.
+        &#34;&#34;&#34;
+        async with ClientSession(timeout=ClientTimeout(5)) as session:
+            ok, result = await self.request(session.get, &#39;music/album/&#39;, title=title)
+            if not ok:
+                return {}
+            return result
+
+    async def get_author(self, name):
+        &#34;&#34;&#34;
+        Retrieves author information based on the name.
+
+        Parameters:
+        - name (str): The name of the author.
+
+        Returns:
+        dict: Author information.
+        &#34;&#34;&#34;
+        async with ClientSession(timeout=ClientTimeout(5)) as session:
+            ok, result = await self.request(session.get, &#39;music/author/&#39;, name=name)
+            if not ok:
+                return {}
+            return result
+
+    async def get_songs_by_genre(self, genre):
+        &#34;&#34;&#34;
+        Retrieves songs based on the genre.
+
+        Parameters:
+        - genre (str): The genre of the songs.
+
+        Returns:
+        dict: Information about songs matching the specified genre.
+        &#34;&#34;&#34;
+        async with ClientSession(timeout=ClientTimeout(5)) as session:
+            ok, result = await self.request(session.get, &#39;music/song/&#39;, genre=genre)
+            if not ok:
+                return {}
+            return result
+
+    async def activate_subscription(self):
+        &#34;&#34;&#34;
+        Activates a subscription.
+
+        Returns:
+        dict: Information about the activated subscription.
+        &#34;&#34;&#34;
+        async with ClientSession(timeout=ClientTimeout(5)) as session:
+            ok, result = await self.request(session.get, &#39;auth_api/subscribe/&#39;)
+            if not ok:
+                return {}
+            return result</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="app.src.backend.database.controller.Database"><code class="flex name class">
+<span>class <span class="ident">Database</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>The <code><a title="app.src.backend.database.controller.Database" href="#app.src.backend.database.controller.Database">Database</a></code> class represents an interface for interacting with a remote API.</p>
+<p>Attributes:
+- url (str): The base URL of the API.
+- token (str): The authentication token.</p>
+<p>Methods:
+- get_default_headers(token, req_uuid): Returns default headers for API requests.
+- _get_api_error_data(response, request_uuid): Extracts error data from the API response.
+- request(method, endpoint, token=None, url=None, need_log_params=True, **kwargs): Sends an API request.
+- login(data): Authenticates a user based on the provided data.
+- get_album(title): Retrieves album information based on the title.
+- get_author(name): Retrieves author information based on the name.
+- get_songs_by_genre(genre): Retrieves songs based on the genre.
+- activate_subscription(): Activates a subscription.</p>
+<p>Note: The methods in this class are asynchronous and should be awaited in an asynchronous context.</p>
+<p>Initializes a new <code><a title="app.src.backend.database.controller.Database" href="#app.src.backend.database.controller.Database">Database</a></code> instance.</p>
+<p>Sets the default base URL of the API and initializes the token to <code>None</code>.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Database:
+    &#34;&#34;&#34;
+    The `Database` class represents an interface for interacting with a remote API.
+
+    Attributes:
+    - url (str): The base URL of the API.
+    - token (str): The authentication token.
+
+    Methods:
+    - get_default_headers(token, req_uuid): Returns default headers for API requests.
+    - _get_api_error_data(response, request_uuid): Extracts error data from the API response.
+    - request(method, endpoint, token=None, url=None, need_log_params=True, **kwargs): Sends an API request.
+    - login(data): Authenticates a user based on the provided data.
+    - get_album(title): Retrieves album information based on the title.
+    - get_author(name): Retrieves author information based on the name.
+    - get_songs_by_genre(genre): Retrieves songs based on the genre.
+    - activate_subscription(): Activates a subscription.
+
+    Note: The methods in this class are asynchronous and should be awaited in an asynchronous context.
+    &#34;&#34;&#34;
+    def __init__(self):
+        &#34;&#34;&#34;
+        Initializes a new `Database` instance.
+
+        Sets the default base URL of the API and initializes the token to `None`.
+        &#34;&#34;&#34;
+        self.url = &#39;http://localhost:8000/api_v1/&#39;
+        self.token = None
+
+    @staticmethod
+    def get_default_headers(token, req_uuid):
+        &#34;&#34;&#34;
+        Returns default headers for API requests.
+
+        Parameters:
+        - token (str): The authentication token.
+        - req_uuid (str): The unique identifier for the request.
+
+        Returns:
+        dict: Default headers for API requests.
+        &#34;&#34;&#34;
+        headers = {&#34;RequestUUID&#34;: req_uuid or &#34;&#34;}
+        if token:
+            headers.update({&#39;Authorization&#39;: f&#39;Token {token}&#39;})
+        return headers
+
+    @staticmethod
+    async def _get_api_error_data(response, request_uuid):
+        &#34;&#34;&#34;
+        Extracts error data from the API response.
+
+        Parameters:
+        - response: The API response object.
+        - request_uuid (str): The unique identifier for the request.
+
+        Returns:
+        Any: Error data extracted from the API response.
+        &#34;&#34;&#34;
+        try:
+            error = await response.json()
+        except ContentTypeError:
+            error = await response.text()
+            try:
+                soup = BeautifulSoup(error, &#39;html.parser&#39;)
+                summary_div = soup.find(id=&#39;summary&#39;)
+                h1_text = summary_div.find(&#39;h1&#39;).get_text(strip=True).replace(&#39;\n&#39;, &#39;&#39;)
+                exception_value_text = summary_div.find(class_=&#39;exception_value&#39;).get_text(strip=True)
+            except (TypeError, AttributeError):
+                pass
+            else:
+                error = f&#34;HTML {response.status}: {exception_value_text} {h1_text}&#34;
+
+        escaped_error = str(error).replace(&#39;&lt;&#39;, r&#39;\&lt;&#39;)
+        logger.error(f&#34;API body of {request_uuid}: {escaped_error}&#34;)
+        return error
+
+    async def request(self, method, endpoint, token=None, url=None, need_log_params=True, **kwargs):
+        &#34;&#34;&#34;
+        Sends an API request.
+
+        Parameters:
+        - method: The HTTP method for the request (e.g., `session.get`).
+        - endpoint (str): The API endpoint.
+        - token (str): The authentication token.
+        - url (str): The base URL of the API.
+        - need_log_params (bool): Indicates whether to log the request parameters.
+        - **kwargs: Additional keyword arguments for the API request.
+
+        Returns:
+        Tuple[bool, Any]: A tuple indicating the success status and the data received from the API.
+        &#34;&#34;&#34;
+        if not url:
+            url = self.url
+        request_uuid = uuid.uuid4()
+        logger.info(f&#34;Start API {method.__name__} {endpoint!r} request {request_uuid} &#34;
+                    f&#34;{kwargs if need_log_params else &#39;&#39;}&#34;)
+        start = time.time()
+        try:
+            async with method(
+                    url + endpoint,
+                    headers=self.get_default_headers(token or self.token, str(request_uuid)),
+                    **kwargs,
+            ) as resp:
+                logger.debug(f&#34;Received API response {request_uuid}: &#34;
+                             f&#34;status {resp.status}, request time {time.time() - start:.2f}s&#34;)
+                if not resp.ok:
+                    if resp.status != 504:
+                        error = await self._get_api_error_data(resp, request_uuid)
+                    else:
+                        raise Exception(translate(&#39;api&#39;, &#39;request_timeout_error&#39;))
+
+                    return False, error
+                data = await resp.json()
+        except asyncio.CancelledError as e:
+            logger.error(f&#34;API coroutine was cancelled {request_uuid}: {time.time() - start}, {e!r}&#34;)
+            raise
+        except (asyncio.TimeoutError, TimeoutError) as e:
+            logger.error(f&#34;API timeout {request_uuid}: {time.time() - start}, {e!r}&#34;)
+            raise
+        return True, data
+
+    async def login(self, data):
+        &#34;&#34;&#34;
+        Authenticates a user based on the provided data.
+
+        Parameters:
+        - data: Data for user authentication.
+
+        Returns:
+        dict: User authentication result.
+        &#34;&#34;&#34;
+        async with ClientSession(timeout=ClientTimeout(5)) as session:
+            if token := data.get(&#39;token&#39;):
+                ok, result = await self.request(
+                    session.get, &#39;auth_api/login_by_token/&#39;, need_log_params=False, token=token
+                )
+            else:
+                ok, result = await self.request(session.post, &#39;auth_api/login/&#39;, need_log_params=False, json=data)
+            if not ok:
+                return {}
+            self.token = result.get(&#39;token&#39;)
+            return result
+
+    async def get_album(self, title):
+        &#34;&#34;&#34;
+        Retrieves album information based on the title.
+
+        Parameters:
+        - title (str): The title of the album.
+
+        Returns:
+        dict: Album information.
+        &#34;&#34;&#34;
+        async with ClientSession(timeout=ClientTimeout(5)) as session:
+            ok, result = await self.request(session.get, &#39;music/album/&#39;, title=title)
+            if not ok:
+                return {}
+            return result
+
+    async def get_author(self, name):
+        &#34;&#34;&#34;
+        Retrieves author information based on the name.
+
+        Parameters:
+        - name (str): The name of the author.
+
+        Returns:
+        dict: Author information.
+        &#34;&#34;&#34;
+        async with ClientSession(timeout=ClientTimeout(5)) as session:
+            ok, result = await self.request(session.get, &#39;music/author/&#39;, name=name)
+            if not ok:
+                return {}
+            return result
+
+    async def get_songs_by_genre(self, genre):
+        &#34;&#34;&#34;
+        Retrieves songs based on the genre.
+
+        Parameters:
+        - genre (str): The genre of the songs.
+
+        Returns:
+        dict: Information about songs matching the specified genre.
+        &#34;&#34;&#34;
+        async with ClientSession(timeout=ClientTimeout(5)) as session:
+            ok, result = await self.request(session.get, &#39;music/song/&#39;, genre=genre)
+            if not ok:
+                return {}
+            return result
+
+    async def activate_subscription(self):
+        &#34;&#34;&#34;
+        Activates a subscription.
+
+        Returns:
+        dict: Information about the activated subscription.
+        &#34;&#34;&#34;
+        async with ClientSession(timeout=ClientTimeout(5)) as session:
+            ok, result = await self.request(session.get, &#39;auth_api/subscribe/&#39;)
+            if not ok:
+                return {}
+            return result</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="app.src.backend.database.controller.Database.get_default_headers"><code class="name flex">
+<span>def <span class="ident">get_default_headers</span></span>(<span>token, req_uuid)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns default headers for API requests.</p>
+<p>Parameters:
+- token (str): The authentication token.
+- req_uuid (str): The unique identifier for the request.</p>
+<p>Returns:
+dict: Default headers for API requests.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def get_default_headers(token, req_uuid):
+    &#34;&#34;&#34;
+    Returns default headers for API requests.
+
+    Parameters:
+    - token (str): The authentication token.
+    - req_uuid (str): The unique identifier for the request.
+
+    Returns:
+    dict: Default headers for API requests.
+    &#34;&#34;&#34;
+    headers = {&#34;RequestUUID&#34;: req_uuid or &#34;&#34;}
+    if token:
+        headers.update({&#39;Authorization&#39;: f&#39;Token {token}&#39;})
+    return headers</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="app.src.backend.database.controller.Database.activate_subscription"><code class="name flex">
+<span>async def <span class="ident">activate_subscription</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Activates a subscription.</p>
+<p>Returns:
+dict: Information about the activated subscription.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def activate_subscription(self):
+    &#34;&#34;&#34;
+    Activates a subscription.
+
+    Returns:
+    dict: Information about the activated subscription.
+    &#34;&#34;&#34;
+    async with ClientSession(timeout=ClientTimeout(5)) as session:
+        ok, result = await self.request(session.get, &#39;auth_api/subscribe/&#39;)
+        if not ok:
+            return {}
+        return result</code></pre>
+</details>
+</dd>
+<dt id="app.src.backend.database.controller.Database.get_album"><code class="name flex">
+<span>async def <span class="ident">get_album</span></span>(<span>self, title)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieves album information based on the title.</p>
+<p>Parameters:
+- title (str): The title of the album.</p>
+<p>Returns:
+dict: Album information.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def get_album(self, title):
+    &#34;&#34;&#34;
+    Retrieves album information based on the title.
+
+    Parameters:
+    - title (str): The title of the album.
+
+    Returns:
+    dict: Album information.
+    &#34;&#34;&#34;
+    async with ClientSession(timeout=ClientTimeout(5)) as session:
+        ok, result = await self.request(session.get, &#39;music/album/&#39;, title=title)
+        if not ok:
+            return {}
+        return result</code></pre>
+</details>
+</dd>
+<dt id="app.src.backend.database.controller.Database.get_author"><code class="name flex">
+<span>async def <span class="ident">get_author</span></span>(<span>self, name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieves author information based on the name.</p>
+<p>Parameters:
+- name (str): The name of the author.</p>
+<p>Returns:
+dict: Author information.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def get_author(self, name):
+    &#34;&#34;&#34;
+    Retrieves author information based on the name.
+
+    Parameters:
+    - name (str): The name of the author.
+
+    Returns:
+    dict: Author information.
+    &#34;&#34;&#34;
+    async with ClientSession(timeout=ClientTimeout(5)) as session:
+        ok, result = await self.request(session.get, &#39;music/author/&#39;, name=name)
+        if not ok:
+            return {}
+        return result</code></pre>
+</details>
+</dd>
+<dt id="app.src.backend.database.controller.Database.get_songs_by_genre"><code class="name flex">
+<span>async def <span class="ident">get_songs_by_genre</span></span>(<span>self, genre)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieves songs based on the genre.</p>
+<p>Parameters:
+- genre (str): The genre of the songs.</p>
+<p>Returns:
+dict: Information about songs matching the specified genre.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def get_songs_by_genre(self, genre):
+    &#34;&#34;&#34;
+    Retrieves songs based on the genre.
+
+    Parameters:
+    - genre (str): The genre of the songs.
+
+    Returns:
+    dict: Information about songs matching the specified genre.
+    &#34;&#34;&#34;
+    async with ClientSession(timeout=ClientTimeout(5)) as session:
+        ok, result = await self.request(session.get, &#39;music/song/&#39;, genre=genre)
+        if not ok:
+            return {}
+        return result</code></pre>
+</details>
+</dd>
+<dt id="app.src.backend.database.controller.Database.login"><code class="name flex">
+<span>async def <span class="ident">login</span></span>(<span>self, data)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Authenticates a user based on the provided data.</p>
+<p>Parameters:
+- data: Data for user authentication.</p>
+<p>Returns:
+dict: User authentication result.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def login(self, data):
+    &#34;&#34;&#34;
+    Authenticates a user based on the provided data.
+
+    Parameters:
+    - data: Data for user authentication.
+
+    Returns:
+    dict: User authentication result.
+    &#34;&#34;&#34;
+    async with ClientSession(timeout=ClientTimeout(5)) as session:
+        if token := data.get(&#39;token&#39;):
+            ok, result = await self.request(
+                session.get, &#39;auth_api/login_by_token/&#39;, need_log_params=False, token=token
+            )
+        else:
+            ok, result = await self.request(session.post, &#39;auth_api/login/&#39;, need_log_params=False, json=data)
+        if not ok:
+            return {}
+        self.token = result.get(&#39;token&#39;)
+        return result</code></pre>
+</details>
+</dd>
+<dt id="app.src.backend.database.controller.Database.request"><code class="name flex">
+<span>async def <span class="ident">request</span></span>(<span>self, method, endpoint, token=None, url=None, need_log_params=True, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sends an API request.</p>
+<p>Parameters:
+- method: The HTTP method for the request (e.g., <code>session.get</code>).
+- endpoint (str): The API endpoint.
+- token (str): The authentication token.
+- url (str): The base URL of the API.
+- need_log_params (bool): Indicates whether to log the request parameters.
+- **kwargs: Additional keyword arguments for the API request.</p>
+<p>Returns:
+Tuple[bool, Any]: A tuple indicating the success status and the data received from the API.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">async def request(self, method, endpoint, token=None, url=None, need_log_params=True, **kwargs):
+    &#34;&#34;&#34;
+    Sends an API request.
+
+    Parameters:
+    - method: The HTTP method for the request (e.g., `session.get`).
+    - endpoint (str): The API endpoint.
+    - token (str): The authentication token.
+    - url (str): The base URL of the API.
+    - need_log_params (bool): Indicates whether to log the request parameters.
+    - **kwargs: Additional keyword arguments for the API request.
+
+    Returns:
+    Tuple[bool, Any]: A tuple indicating the success status and the data received from the API.
+    &#34;&#34;&#34;
+    if not url:
+        url = self.url
+    request_uuid = uuid.uuid4()
+    logger.info(f&#34;Start API {method.__name__} {endpoint!r} request {request_uuid} &#34;
+                f&#34;{kwargs if need_log_params else &#39;&#39;}&#34;)
+    start = time.time()
+    try:
+        async with method(
+                url + endpoint,
+                headers=self.get_default_headers(token or self.token, str(request_uuid)),
+                **kwargs,
+        ) as resp:
+            logger.debug(f&#34;Received API response {request_uuid}: &#34;
+                         f&#34;status {resp.status}, request time {time.time() - start:.2f}s&#34;)
+            if not resp.ok:
+                if resp.status != 504:
+                    error = await self._get_api_error_data(resp, request_uuid)
+                else:
+                    raise Exception(translate(&#39;api&#39;, &#39;request_timeout_error&#39;))
+
+                return False, error
+            data = await resp.json()
+    except asyncio.CancelledError as e:
+        logger.error(f&#34;API coroutine was cancelled {request_uuid}: {time.time() - start}, {e!r}&#34;)
+        raise
+    except (asyncio.TimeoutError, TimeoutError) as e:
+        logger.error(f&#34;API timeout {request_uuid}: {time.time() - start}, {e!r}&#34;)
+        raise
+    return True, data</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="app.src.backend.database" href="index.html">app.src.backend.database</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="app.src.backend.database.controller.Database" href="#app.src.backend.database.controller.Database">Database</a></code></h4>
+<ul class="">
+<li><code><a title="app.src.backend.database.controller.Database.activate_subscription" href="#app.src.backend.database.controller.Database.activate_subscription">activate_subscription</a></code></li>
+<li><code><a title="app.src.backend.database.controller.Database.get_album" href="#app.src.backend.database.controller.Database.get_album">get_album</a></code></li>
+<li><code><a title="app.src.backend.database.controller.Database.get_author" href="#app.src.backend.database.controller.Database.get_author">get_author</a></code></li>
+<li><code><a title="app.src.backend.database.controller.Database.get_default_headers" href="#app.src.backend.database.controller.Database.get_default_headers">get_default_headers</a></code></li>
+<li><code><a title="app.src.backend.database.controller.Database.get_songs_by_genre" href="#app.src.backend.database.controller.Database.get_songs_by_genre">get_songs_by_genre</a></code></li>
+<li><code><a title="app.src.backend.database.controller.Database.login" href="#app.src.backend.database.controller.Database.login">login</a></code></li>
+<li><code><a title="app.src.backend.database.controller.Database.request" href="#app.src.backend.database.controller.Database.request">request</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
