@@ -9,5 +9,17 @@
 			<source>invalid_login_or_pass</source>
 			<translation>Неправильний логін або пароль</translation>
 		</message>
+		<message>
+			<source>play_next</source>
+			<translation>Грати наступною</translation>
+		</message>
+		<message>
+			<source>play_later</source>
+			<translation>Грати пізніше</translation>
+		</message>
+		<message>
+			<source>delete</source>
+			<translation>Видалити</translation>
+		</message>
 	</context>
 </TS>

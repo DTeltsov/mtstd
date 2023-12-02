@@ -1,0 +1,13 @@
+import QtQuick 2.2
+import QtGraphicalEffects 1.0
+
+
+DropShadow {
+    horizontalOffset: -2
+    verticalOffset: 2
+    radius: 8.0
+    samples: 17
+    color: "#80000000"
+    transparentBorder: true
+    cached: true
+}

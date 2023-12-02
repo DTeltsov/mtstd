@@ -14,8 +14,17 @@ class GenreSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class SongAlbumSerializer(serializers.ModelSerializer):
+    authors = AuthorSerializer(many=True)
+
+    class Meta:
+        model = Album
+        fields = ('title', 'authors')
+
+
 class SongSerializer(serializers.ModelSerializer):
     genres = GenreSerializer(many=True)
+    albums = SongAlbumSerializer(many=True)
 
     class Meta:
         model = Song

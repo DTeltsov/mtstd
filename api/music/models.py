@@ -36,7 +36,7 @@ class Song(models.Model):
     title = models.CharField(max_length=254)
     length = models.FloatField()
     cover = models.FileField(
-        storage=S3Boto3Storage, upload_to=song_upload_path,
+        storage=S3Boto3Storage, upload_to=pic_upload_path,
         blank=True, null=True, validators=[FileExtensionValidator(allowed_extensions=['png', 'jpg'])]
     )
     file = models.FileField(

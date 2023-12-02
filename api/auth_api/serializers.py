@@ -3,8 +3,8 @@ from django.contrib.auth.hashers import make_password
 from rest_framework import serializers
 from rest_framework.validators import ValidationError
 
-from .models import AccountUser
-
+from .models import AccountUser, Subscription
+from music.serializers import SongSerializer
 
 def is_latin_string(string_to_check: str) -> bool:
     pattern = r'^[a-zA-Z0-9@.+\-_]+$'
@@ -20,10 +20,19 @@ def is_latin_string_with_space(string_to_check: str) -> bool:
     return True
 
 
+class SubscriptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscription
+        fields = '__all__'
+
+
 class AccountsByLoginSerializer(serializers.ModelSerializer):
+    subscription_model = SubscriptionSerializer()
+    songs = SongSerializer(many=True)
+
     class Meta:
         model = AccountUser
-        fields = ('first_name', 'last_name', 'email', 'location', 'language')
+        fields = ('first_name', 'last_name', 'username', 'subscription_model', 'songs')
 
 
 class AccountsSerializer(serializers.ModelSerializer):
@@ -32,7 +41,7 @@ class AccountsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AccountUser
-        fields = ('username', 'first_name', 'last_name', 'email', 'location', 'language', 'team', 'password')
+        fields = ('username', 'first_name', 'last_name', 'email', 'password')
 
     def validate_last_name(self, attrs):
         self._validate_latin_string("last_name", attrs, with_space=True)

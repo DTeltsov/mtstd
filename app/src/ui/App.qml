@@ -6,9 +6,6 @@ import "qrc:/AColor.js" as Colors
 import "qrc:/components/login"
 import "qrc:/components/popups"
 
-import AQML 1.0
-import AEnums 1.0
-
 
 ApplicationWindow {
     id: app
@@ -19,7 +16,7 @@ ApplicationWindow {
     color: Colors.dark_3
 
     FontLoader {
-        id: aFont
+        id: ajaxFont
         source: "qrc:/fonts/robotoRegular.ttf"
     }
 
@@ -41,16 +38,13 @@ ApplicationWindow {
     ColumnLayout {
         anchors.fill: parent
         spacing: 0
-        Header {
-            id: appHeader
-            Layout.fillWidth: true
-        }
-
         StackView {
             id: mainStackView
             Layout.fillWidth: true
             Layout.fillHeight: true
-            initialItem: userAuthorization
+            initialItem: {
+                return userAuthorization
+            }
             replaceEnter: Transition {
                 PropertyAnimation {
                     property: "opacity"
@@ -72,43 +66,17 @@ ApplicationWindow {
 
     ExitDialog {
         id: exitDialog
-
-        function checkCanClosing() {
-            if (storage.infoModel.isTesting){
-                errorPopup.setError(qsTranslate("warning", "completed_test_required"),
-                                    qsTranslate("", "exit_canceled"))
-                return false
-            }
-            return true
-        }
     }
     onClosing: {
         close.accepted = false
         onTriggered: {
-            if (exitDialog.checkCanClosing()) {
-                exitDialog.open()
-            }
+            exitDialog.open()
         }
     }
-    PopupBusy { id: popupBusy }
     ErrorPopup {
         id: errorPopup
-
-        Connections {
-            target: db
-            function onSignalError(title, body) {errorPopup.setError(body, title)}
-        }
-        Connections {
-            target: storage
-            function onSignalError(title, body) {errorPopup.setError(body, title)}
-        }
-        Connections {
-            target: storage && storage.tracker
-            function onSignalError(title, body) {errorPopup.setError(body, title)}
-        }
     }
     InfoPopup { id: infoPopup }
-    PausePopup {}
     LanguagesPopup { id: langPopup }
 
     PopupQuestionTitle {

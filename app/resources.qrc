@@ -4,17 +4,24 @@
         <file alias="AColor.js">assets/AColor.js</file>
         <file alias="App.qml">src/ui/App.qml</file>
         <file alias="ExitDialog.qml">src/ui/ExitDialog.qml</file>
-        <file alias="Header.qml">src/ui/Header.qml</file>
         <file alias="Workspace.qml">src/ui/Workspace.qml</file>
 
+        <file alias="components/library/Library.qml">src/ui/components/library/Library.qml</file>
+        <file alias="components/library/LibraryWizard.qml">src/ui/components/library/LibraryWizard.qml</file>
+        <file alias="components/player/SongPlaying.qml">src/ui/components/player/SongPlaying.qml</file>
+        <file alias="components/player/Player.qml">src/ui/components/player/Player.qml</file>
+        <file alias="components/player/Controls.qml">src/ui/components/player/Controls.qml</file>
+        <file alias="components/header/Header.qml">src/ui/components/header/Header.qml</file>
+        <file alias="components/header/Search.qml">src/ui/components/header/Search.qml</file>
         <file alias="components/login/LoginWizard.qml">src/ui/components/login/LoginWizard.qml</file>
         <file alias="components/login/Login.qml">src/ui/components/login/Login.qml</file>
         <file alias="components/popups/ErrorPopup.qml">src/ui/components/popups/ErrorPopup.qml</file>
         <file alias="components/popups/FatalDialogPopup.qml">src/ui/components/popups/FatalDialogPopup.qml</file>
         <file alias="components/popups/InfoPopup.qml">src/ui/components/popups/InfoPopup.qml</file>
-        <file alias="components/popups/PopupBusy.qml">src/ui/components/popups/PopupBusy.qml</file>
         <file alias="components/popups/PopupQuestionTitle.qml">src/ui/components/popups/PopupQuestionTitle.qml</file>
         <file alias="components/popups/LanguagesPopup.qml">src/ui/components/popups/LanguagesPopup.qml</file>
+        <file alias="components/popups/AlbumPopup.qml">src/ui/components/popups/AlbumPopup.qml</file>
+        <file alias="components/popups/SongOptionsPopup.qml">src/ui/components/popups/SongOptionsPopup.qml</file>
 
         <file alias="theme/Text.qml">src/ui/theme/Text.qml</file>
         <file alias="theme/Button.qml">src/ui/theme/Button.qml</file>
@@ -69,6 +76,16 @@
         <file alias="dislike.svg">assets/img/elements/dislike.svg</file>
         <file alias="trash-can.svg">assets/img/elements/trash-can.svg</file>
         <file alias="minusButton.svg">assets/img/minusButton.svg</file>
+        <file alias="next.svg">assets/img/controls/next.svg</file>
+        <file alias="play.svg">assets/img/controls/play.svg</file>
+        <file alias="pause.svg">assets/img/controls/pause.svg</file>
+        <file alias="previous.svg">assets/img/controls/previous.svg</file>
+        <file alias="repeat.svg">assets/img/controls/repeat.svg</file>
+        <file alias="repeating.svg">assets/img/controls/repeating.svg</file>
+        <file alias="repeating_one.svg">assets/img/controls/repeating_one.svg</file>
+        <file alias="play_this_song.svg">assets/img/controls/play_this_song.svg</file>
+        <file alias="playing.svg">assets/img/controls/playing.svg</file>
+        <file alias="options.svg">assets/img/controls/options.svg</file>
     </qresource>
     <qresource prefix="/flags">
         <file alias="en.svg">assets/img/flags/en.svg</file>

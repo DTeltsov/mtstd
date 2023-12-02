@@ -72,7 +72,7 @@ DATABASES = {
         'USER': os.environ.get('DB_USER_NAME', 'root'),
         'PASSWORD': os.environ.get('DB_USER_PASSWORD', '123'),
         'HOST': os.environ.get('DB_HOST', 'localhost'),
-        'PORT': os.environ.get("DB_PORT", '3336'),
+        'PORT': os.environ.get("DB_PORT", '3311'),
         'OPTIONS': {
             'charset': 'utf8mb4',
             'ssl': {"verify_mode": None},
@@ -243,10 +243,11 @@ AWS_PRESIGNED_EXPIRY = os.environ.get("AWS_PRESIGNED_EXPIRY", default=10)  # sec
 
 AWS_S3_ENDPOINT_URL = os.environ.get("ENDPOINT_AWS_S3", None)
 
-# hard code set AWS permission bucket and region
+AWS_STORAGE_BUCKET_NAME = "songs"
 if not DEBUG:
-    AWS_STORAGE_BUCKET_NAME = "songs"
     AWS_S3_REGION_NAME = "eu-west-1"
 else:
-    AWS_STORAGE_BUCKET_NAME = "songs"
     AWS_S3_REGION_NAME = "eu-west-3"
+
+AWS_S3_ACCESS_KEY_ID = 'test'
+AWS_S3_SECRET_ACCESS_KEY = 'test'
