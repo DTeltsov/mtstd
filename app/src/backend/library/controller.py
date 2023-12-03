@@ -19,7 +19,9 @@ class Library(QObject, metaclass=PropertyMeta):
     Note: This class should be used with the PropertyMeta metaclass for automatic creation of Property attributes.
     """
     albums = Property([])
+    songs = Property([])
     artists = Property([])
+    mode = Property('albums')
     signalDisplayAlbumChanged = pyqtSignal()
     displayAlbum = pyqtProperty(QObject, fget=lambda self: self._display_album, notify=signalDisplayAlbumChanged)
 
@@ -31,10 +33,6 @@ class Library(QObject, metaclass=PropertyMeta):
         if album := self.get_album_by_name(album_name):
             self._display_album = album
             self.signalDisplayAlbumChanged.emit()
-
-    @property
-    def songs(self):
-        return [song for album in self.albums for song in album.songs]
 
     def setup(self, songs):
         """
@@ -56,6 +54,7 @@ class Library(QObject, metaclass=PropertyMeta):
                 album = Album(album_data)
                 album.songs.append(song)
                 self.albums.append(album)
+            self.songs.append(song)
         for album in self.albums:
             album.choose_cover_and_artist()
 

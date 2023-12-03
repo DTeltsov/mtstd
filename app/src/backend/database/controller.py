@@ -163,7 +163,7 @@ class Database:
         dict: Album information.
         """
         async with ClientSession(timeout=ClientTimeout(5)) as session:
-            ok, result = await self.request(session.get, 'music/album/', title=title)
+            ok, result = await self.request(session.get, 'music/album/', params=dict(title=title))
             if not ok:
                 return {}
             return result

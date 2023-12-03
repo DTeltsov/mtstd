@@ -21,5 +21,17 @@
 			<source>delete</source>
 			<translation>Delete</translation>
 		</message>
+		<message>
+			<source>your_library</source>
+			<translation>Your library</translation>
+		</message>
+		<message>
+			<source>albums</source>
+			<translation>Albums</translation>
+		</message>
+		<message>
+			<source>songs</source>
+			<translation>Songs</translation>
+		</message>
 	</context>
 </TS>

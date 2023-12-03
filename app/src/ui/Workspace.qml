@@ -27,6 +27,67 @@ Rectangle {
                 Layout.fillHeight: true
                 Layout.preferredWidth: 200
                 color: Colors.dark_4
+                ColumnLayout {
+                    anchors.fill: parent
+                    ColumnLayout {
+                        spacing: 0
+                        Rectangle {
+                            Layout.fillWidth: true
+                            Layout.preferredHeight: 30
+                            color: Colors.black
+                            Text {
+                                anchors.fill: parent
+                                text: qsTranslate("login_errors", "your_library")
+                            }
+                        }
+                        Rectangle {
+                            Layout.fillWidth: true
+                            Layout.preferredHeight: 30
+                            color: Colors.dark_3
+                            Text {
+                                anchors.fill: parent
+                                text: qsTranslate("login_errors", "albums")
+                            }
+                            MouseArea {
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                cursorShape: Qt.PointingHandCursor
+                                onEntered: {
+                                    parent.opacity = 0.7
+                                }
+                                onExited: {
+                                    parent.opacity = 1.0
+                                }
+                                onClicked: {
+                                    session.library.mode = "albums"
+                                }
+                            }
+                        }
+                        Rectangle {
+                            Layout.fillWidth: true
+                            Layout.preferredHeight: 30
+                            color: Colors.dark_3
+                            Text {
+                                anchors.fill: parent
+                                text: qsTranslate("login_errors", "songs")
+                            }
+                            MouseArea {
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                cursorShape: Qt.PointingHandCursor
+                                onEntered: {
+                                    parent.opacity = 0.7
+                                }
+                                onExited: {
+                                    parent.opacity = 1.0
+                                }
+                                onClicked: {
+                                    session.library.mode = "songs"
+                                }
+                            }
+                        }
+                    }
+                }
             }
             StackView {
                 id: stackView

@@ -21,5 +21,17 @@
 			<source>delete</source>
 			<translation>Видалити</translation>
 		</message>
+			<message>
+			<source>your_library</source>
+			<translation>Твоя бібліотека</translation>
+		</message>
+		<message>
+			<source>albums</source>
+			<translation>Альбоми</translation>
+		</message>
+		<message>
+			<source>songs</source>
+			<translation>Пісні</translation>
+		</message>
 	</context>
 </TS>
